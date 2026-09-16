@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="REYZ STORE - Top Up & Kebutuhan Gaming. Simple, Fast, Trusted.">
+  <title>REYZ STORE — Gaming Store</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:#070914;color:#f5f7ff;line-height:1.6;overflow-x:hidden
+    }
+    a{text-decoration:none;color:inherit}
+    .bg{
+      position:fixed;inset:0;z-index:-2;
+      background:
+        radial-gradient(circle at 15% 15%,rgba(69,91,255,.22),transparent 30%),
+        radial-gradient(circle at 85% 25%,rgba(155,70,255,.18),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(0,196,255,.12),transparent 32%),
+        #070914;
+    }
+    .grid{
+      position:fixed;inset:0;z-index:-1;opacity:.18;
+      background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%);
+    }
+    .wrap{width:min(1100px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(16px);background:rgba(7,9,20,.72);
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .navin{height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:900;letter-spacing:1px;font-size:21px}
+    .logo span{color:#6c7cff}
+    .navlinks{display:flex;gap:24px;color:#b9c0d9;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .hero{min-height:650px;display:grid;place-items:center;text-align:center;padding:90px 0 70px}
+    .badge{
+      display:inline-flex;padding:7px 13px;border:1px solid rgba(116,130,255,.35);
+      background:rgba(93,108,255,.09);border-radius:999px;color:#aeb7ff;font-size:13px;
+      margin-bottom:22px;animation:float 3s ease-in-out infinite
+    }
+    h1{font-size:clamp(48px,10vw,92px);line-height:.95;letter-spacing:-4px;font-weight:950}
+    .grad{background:linear-gradient(90deg,#fff,#7e8cff,#c58cff);-webkit-background-clip:text;color:transparent}
+    .hero p{max-width:650px;margin:24px auto;color:#aeb5cc;font-size:17px}
+    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:12px;
+      font-weight:800;font-size:14px;transition:.25s;border:1px solid rgba(255,255,255,.1)
+    }
+    .btn.primary{background:linear-gradient(135deg,#5365ff,#8b54ff);box-shadow:0 12px 35px rgba(91,91,255,.3)}
+    .btn.secondary{background:rgba(255,255,255,.05);color:#dce1f4}
+    .btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
+    section{padding:75px 0}
+    .section-head{text-align:center;margin-bottom:32px}
+    .section-head h2{font-size:34px;letter-spacing:-1px}
+    .section-head p{color:#8991aa;margin-top:7px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:18px;
+      background:rgba(15,18,35,.72);backdrop-filter:blur(12px);
+      transition:.25s
+    }
+    .card:hover{transform:translateY(-6px);border-color:rgba(112,126,255,.4)}
+    .gameicon{font-size:30px;margin-bottom:12px}
+    .card h3{font-size:18px}.muted{color:#8991aa;font-size:13px}
+    .prices{margin:18px 0;display:grid;gap:8px}
+    .price{
+      display:flex;justify-content:space-between;gap:10px;padding:10px 12px;
+      border-radius:10px;background:rgba(255,255,255,.045);font-size:13px
+    }
+    .price b{color:#aeb7ff}
+    .buy{width:100%;margin-top:4px}
+    .testi{grid-template-columns:repeat(3,1fr)}
+    .quote{font-size:14px;color:#c9cee0;margin:12px 0}
+    .stars{color:#aab4ff;letter-spacing:2px}
+    .how{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{text-align:center}.num{
+      width:42px;height:42px;display:grid;place-items:center;margin:0 auto 12px;
+      border-radius:12px;background:rgba(100,113,255,.14);color:#9da8ff;font-weight:900
+    }
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:35px 0;color:#777f98;text-align:center;font-size:13px}
+    .wa{
+      position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;background:#25D366;color:white;font-size:26px;
+      box-shadow:0 10px 30px rgba(37,211,102,.25);animation:pulse 2s infinite
+    }
+    @keyframes float{50%{transform:translateY(-5px)}}
+    @keyframes pulse{50%{box-shadow:0 10px 35px rgba(37,211,102,.48)}}
+    @media(max-width:760px){
+      .navlinks{display:none}.hero{min-height:600px;padding-top:65px}
+      h1{letter-spacing:-2.5px}.hero p{font-size:15px}
+      .cards,.testi{grid-template-columns:1fr}
+      .how{grid-template-columns:repeat(2,1fr)}
+      section{padding:58px 0}.section-head h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg"></div><div class="grid"></div>
+
+<nav>
+  <div class="wrap navin">
+    <a class="logo" href="#">REYZ<span>STORE</span></a>
+    <div class="navlinks">
+      <a href="#produk">Produk</a><a href="#testimoni">Testimoni</a><a href="#cara">Cara Order</a>
+    </div>
+    <a class="btn primary" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order." target="_blank">ORDER</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">⚡ TOP UP GAME CEPAT, AMAN & TERPERCAYA</div>
+    <h1>REYZ<br><span class="grad">STORE</span></h1>
+    <p>TOP UP & KEBUTUHAN GAMING. Simple • Fast • Trusted.</p>
+    <div class="actions">
+      <a class="btn primary" href="#produk">🛒 Lihat Produk</a>
+      <a class="btn secondary" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order." target="_blank">💬 ORDER SEKARANG</a>
+    </div>
+  </div>
+</header>
+
+<section id="produk">
+  <div class="wrap">
+    <div class="section-head"><h2>PRODUK TERSEDIA</h2><p>Pilih game, pilih nominal, lalu order.</p></div>
+    <div class="cards">
+      <article class="card">
+        <div class="gameicon">🔥</div><h3>Free Fire</h3><div class="muted">Diamond</div>
+        <div class="prices">
+          <div class="price"><span>70 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>140 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>355 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>720 Diamond</span><b>Rp —</b></div>
+        </div>
+        <a class="btn primary buy" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order%20Free%20Fire." target="_blank">ORDER SEKARANG</a>
+      </article>
+      <article class="card">
+        <div class="gameicon">⚔️</div><h3>Mobile Legends</h3><div class="muted">Diamond</div>
+        <div class="prices">
+          <div class="price"><span>86 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>172 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>257 Diamond</span><b>Rp —</b></div>
+          <div class="price"><span>344 Diamond</span><b>Rp —</b></div>
+        </div>
+        <a class="btn primary buy" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order%20Mobile%20Legends." target="_blank">ORDER SEKARANG</a>
+      </article>
+      <article class="card">
+        <div class="gameicon">🎯</div><h3>PUBG Mobile</h3><div class="muted">UC</div>
+        <div class="prices">
+          <div class="price"><span>60 UC</span><b>Rp —</b></div>
+          <div class="price"><span>325 UC</span><b>Rp —</b></div>
+          <div class="price"><span>660 UC</span><b>Rp —</b></div>
+          <div class="price"><span>1800 UC</span><b>Rp —</b></div>
+        </div>
+        <a class="btn primary buy" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order%20PUBG%20Mobile." target="_blank">ORDER SEKARANG</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="section-head"><h2>TESTIMONI</h2><p>Pengalaman pelanggan Reyz Store.</p></div>
+    <div class="cards testi">
+      <article class="card"><div class="stars">★★★★★</div><p class="quote">“Prosesnya cepat dan adminnya responsif. Mantap.”</p><div class="muted">— Customer Reyz Store</div></article>
+      <article class="card"><div class="stars">★★★★★</div><p class="quote">“Order mudah, tinggal chat admin. 👍”</p><div class="muted">— Customer Reyz Store</div></article>
+      <article class="card"><div class="stars">★★★★★</div><p class="quote">“Top up aman dan praktis.”</p><div class="muted">— Customer Reyz Store</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="cara">
+  <div class="wrap">
+    <div class="section-head"><h2>CARA ORDER</h2><p>Empat langkah sederhana.</p></div>
+    <div class="how">
+      <div class="card step"><div class="num">1</div><h3>Pilih Produk</h3><p class="muted">Tentukan game & nominal.</p></div>
+      <div class="card step"><div class="num">2</div><h3>Chat Admin</h3><p class="muted">Klik ORDER SEKARANG.</p></div>
+      <div class="card step"><div class="num">3</div><h3>Kirim Detail</h3><p class="muted">Kirim ID/nomor yang diperlukan.</p></div>
+      <div class="card step"><div class="num">4</div><h3>Selesaikan</h3><p class="muted">Bayar lalu tunggu proses.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 REYZ STORE • Simple • Fast • Trusted</div>
+</footer>
+
+<a class="wa" href="https://wa.me/6281936652510?text=Halo%20Admin%20REYZ%20STORE%2C%20saya%20mau%20order." target="_blank" aria-label="WhatsApp">☏</a>
+</body>
+</html>
